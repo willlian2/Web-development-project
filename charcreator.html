@@ -1,0 +1,114 @@
+ <html>
+        <link rel="STYLESHEET" type="text/css" href="min2.css">
+     <script>
+        
+        async function check() {
+            var st = document.getElementById("str1").value
+            var it = document.getElementById("int1").value
+            var gl = document.getElementById("gold1").value
+            var fv = document.getElementById("favor1").value
+            var nm = document.getElementById("name1").value
+            var pc = document.getElementById("pic1").value
+            var mv = document.getElementById("motivation1").value
+            if(st===""||it===""||gl===""||fv===""||nm===""||pc===""||mv==="")
+            {
+                document.getElementById("err").innerHTML = "Please fill out all fields";
+            }
+            else if(pc>5||pc<1)
+            {
+                document.getElementById("err").innerHTML = "Please use a number between 1-5 for your picture"
+            }
+            else{
+            var uplayer = {
+                Player_name: nm,
+                int: it,
+                str: st,
+                favor: fv,
+                gold: gl,
+                pic: pc,
+                motivation: mv
+            }
+            console.log('called');
+            const result = await fetch('http://localhost:8080/api/contacts', {
+                method: 'post',
+                body: JSON.stringify(uplayer),
+                 headers: {
+                     "Content-Type": "application/json"
+                 }
+            })
+             const datas = await result.json();
+            if(datas.data==null)
+            {
+                document.getElementById("err").innerHTML = "That name is taken"
+            }
+            else{
+                document.getElementById("err").innerHTML="New Player Created! Navigate back to the login page and enter your name to login!"
+            }
+            console.log(datas)
+            var player = datas.data;
+
+            }
+        }
+     </script>
+     <body>
+            
+        
+        
+                
+        <div>
+            <p id="err">Please fill in all fields then click the buttion to create a player</p>
+                <form >
+                  <label for="name1">Name</label>
+                  <input type="text" id="name1" name="nm" placeholder="Your character's name">
+              
+                  <label for="str1">Strength</label>
+                  <input type="text" id="str1" name="strength" placeholder="Your character's strength">
+                 
+                  <label for="int1">Intelligence</label>
+                  <input type="text" id="int1" name="int" placeholder="Your character's intelligence">
+                  
+                  <label for="favor1">Favor</label>
+                  <input type="text" id="favor1" name="favor" placeholder="Your character's favor">
+                
+                  <label for="gold1">Gold</label>
+                  <input type="text" id="gold1" name="gold" placeholder="Your character's gold">
+
+                  <label for="motivation1">Motivation</label>
+                  <input type="text" id="motivation1" name="mot" placeholder="Your character's backstory">
+
+                  <label for="pic1">Choose a picture</label>
+                  <input type="text" id="pic1" name="pic" placeholder="">
+                  
+                 <button onclick="check()" type="button">create!</button>
+                </form>
+              </div>
+                <div class="row">
+              <p>Choose your character image!</p>
+                    <div class="column">
+                        <p>1</p>
+                      <img src="greekchara.jpg" alt="" style="width:100%">
+                    </div>
+                    <div class="column">
+                            <p>2</p>
+                      <img src="greekcharb.jpg" alt="" style="width:100%">
+                    </div>
+                    <div class="column">
+                            <p>3</p>
+                      <img src="greekcharc.jpg" alt="" style="width:100%">
+                    </div>
+                    <div class="column">
+                            <p>4</p>
+                            <img src="greekchare.jpg" alt="" style="width:100%">
+                    </div>
+                    <div class="column">
+                            <p>5</p>
+                            <img src="greekchard.jpg" alt="" style="width:100%" >
+                    </div>
+                    
+                  </div>
+                  
+                
+            
+        </form>
+     </body>
+ </html>

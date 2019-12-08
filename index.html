@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Design</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="loginbox">
+	<img src="avatar.jpg" class="avatar">
+		<h1>Login Here</h1>
+		
+			<p>Username</p>
+			<input type="text" name="name" placeholder="Enter Username" id="name">
+			<button onclick="check()"  >Login</button>
+			<a href="charcreator.html">Create New User</a>
+			<p id="err">Please enter your character's name!</p>
+		
+
+	</div>
+</body>
+<script>
+	 async function check(){
+		 
+		var name = document.getElementById("name").value
+		var nameish = {
+			Player_name: name
+		}
+		console.log('called');
+            const result = await fetch('http://localhost:8080/api/contacts/playerinfo', {
+                method: 'post',
+                body: JSON.stringify(nameish),
+                 headers: {
+                     "Content-Type": "application/json"
+                 }
+            })
+             const datas = await result.json();
+			console.log(datas)
+			if(datas.data== null)
+			{
+				document.getElementById("err").innerHTML = "We can't find a character with that name";
+
+			}
+			else
+			{ localStorage.playername = name
+				document.location.href = "charsheet.html";
+			}
+	}
+	
+</script>
+</html>

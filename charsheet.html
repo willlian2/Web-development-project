@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="STYLESHEET" type="text/css" href="minimalCSS3.css">
+    <title>Window/Tab Title</title>
+    <script>
+           
+           async function check() {
+            var st = document.getElementById("str1").value
+            var it = document.getElementById("int1").value
+            var gl = document.getElementById("gold1").value
+            var fv = document.getElementById("favor1").value
+            var nm = localStorage.playername
+            var pc = localStorage.pic
+            var mv = localStorage.motivation
+            if(st===""||it===""||gl===""||fv==="")
+            {
+                document.getElementById("err").innerHTML = "Please fill out all fields";
+            }
+            else{
+            var uplayer = {
+                Player_name: nm,
+                int: it,
+                str: st,
+                favor: fv,
+                gold: gl,
+                pic: pc,
+                motivation:mv
+            }
+            console.log('called');
+            const result = await fetch('http://localhost:8080/api/contacts/playerinfo', {
+                method: 'put',
+                body: JSON.stringify(uplayer),
+                 headers: {
+                     "Content-Type": "application/json"
+                 }
+            })
+             const datas = await result.json();
+            
+            console.log(datas)
+            var player = datas.data;
+
+        
+            document.getElementById("str").innerHTML = player.str;
+            document.getElementById("favor").innerHTML = player.favor;
+            document.getElementById("int").innerHTML = player.int;
+            document.getElementById("gold").innerHTML = player.gold;
+        }
+    }    
+async function onLoad() {
+            console.log('called');
+            var pname = {
+                Player_name: localStorage.playername
+            }
+            const results = await fetch('http://localhost:8080/api/contacts/playerinfo', {
+                method: 'post',
+                body:  JSON.stringify(pname),
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            })
+
+            const datas = await results.json();
+            console.log(datas)
+            var player = datas.data;
+
+
+            document.getElementById("str").innerHTML = player.str;
+            document.getElementById("favor").innerHTML = player.favor;
+            document.getElementById("int").innerHTML = player.int;
+            document.getElementById("gold").innerHTML = player.gold;
+            document.getElementById("cName").innerHTML = player.Player_name;
+            document.getElementById("mot").innerHTML = player.motivation;
+
+            localStorage.pic=player.pic;
+            localStorage.motivation=player.motivation;
+            console.log(player.pic)
+            if(player.pic==1)
+            {
+                document.getElementById("pics").setAttribute("src", "greekchara.jpg")
+            }
+            if(player.pic==2)
+            {
+                document.getElementById("pics").setAttribute("src", "greekcharb.jpg")
+            }
+            if(player.pic==3)
+            {
+                document.getElementById("pics").setAttribute("src", "greekcharc.jpg")
+            }
+            if(player.pic==4)
+            {
+                document.getElementById("pics").setAttribute("src", "greekchard.jpg")
+            }
+            if(player.pic==5)
+            {
+                document.getElementById("pics").setAttribute("src", "greekchare.jpg")
+            }
+        }
+    </script>
+</head>
+
+
+    <div class = "ap">
+         <p class = "C">Character: </p>
+         <p class = "C2" id=cName> </p>
+
+         <p class = "M">Motivation: </p>
+         <p class = "M2" id="mot"> </p>
+    </div>
+
+
+    <div class = "b1">
+        <p class = "S">Strength</p>
+            <div class="str" id="str"></div>
+    </div>
+
+
+    <div class = "b2">
+        <p class = "I">Int</p>
+            <div class="int" id="int"></div>
+    </div>
+
+
+    <div class = "b3">
+        <p class = "G">Gold</p>
+            <div class="gold" id="gold"></div>
+    </div>
+
+
+    <div class = "b4">
+        <p class = "F">Favor</p>
+            <div class="favor" id="favor"></div>
+    </div>
+
+
+    <div class = "Sb">
+        <table>
+        <tr>
+            <td class>
+                Strength:
+            </td>
+            <td>
+                <input type=”number” name=”str” id="str1">
+            </td>
+        </tr>
+
+        <tr>
+            <td class>
+                Int:
+            </td>
+            <td>
+                <input type=”number” name=”int” id="int1">
+            </td>
+        </tr>
+
+        <tr>
+            <td class>
+                Gold:
+            </td>
+            <td>
+                <input type=”number” name=”gold” id="gold1">
+            </td>
+        </tr>
+
+        <tr>
+            <td class>
+                Favor:
+            </td>
+            <td>
+                <input type=”number” name=”favor” id="favor1">
+            </td>
+        </tr>
+        </table>
+    </div>
+    <t class = "Guide" id = "err"> Enter Values for each box accordingly and hit "Click" </t>
+
+
+    <button onclick="check()">click</button>
+
+
+
+<body onload="onLoad()">
+    <img src="" class="avatar" id="pics">
+</body>
+
+
+</html>

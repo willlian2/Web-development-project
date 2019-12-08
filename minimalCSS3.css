@@ -1,0 +1,244 @@
+body{
+  margin: 0;
+  padding: 0;
+  background: url(Olimpo.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: 100%;
+  font-family: sans-serif;
+}
+
+h1{
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+button {
+  position: absolute;
+  top: 600px;
+  left: 65px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 20%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.avatar{
+  width: 250px;
+  height: 250px;
+  top: 10vh;
+  left: 0%;
+  padding: 70px 30px;
+  border-radius: 10px;
+}
+
+.ap{
+  position: absolute;
+  width: 1060px;
+  height: 116px;
+  top: 9vh;
+  left: 20%;
+  padding: 70px 30px;
+  border-radius: 10px;
+  background: #8ce1fb;
+}
+
+
+
+.C{
+  position: absolute;
+  left: 15px; 
+  top: -6px; 
+  font-size: 22px;
+  color: #210210;
+  font-weight: bold;
+  padding: 0;
+}
+
+.C2{
+  position: absolute;
+  left: 130px; 
+  top: -6px; 
+  font-size: 22px;
+  color: red;
+  font-weight: bold;
+  padding: 0;
+
+}
+
+.M{
+  position: absolute;
+  left: 15px; 
+  top: 50px; 
+  font-size: 22px;
+  color: #210210;
+  font-weight: bold;
+  padding: 0;
+}
+
+.M2{
+  position: absolute;
+  left: 130px; 
+  top: 50px; 
+  font-size: 22px;
+  color: red;
+  font-weight: bold;
+  padding: 0;
+
+}
+
+.b1{
+  position: absolute;
+  width: 290px;
+  height: 40px;
+  top: 50vh;
+  left: 50%;
+  padding: 70px 30px;
+  border-radius: 10px;
+  background: #8ce1fb;
+}
+
+.b2{
+  position: absolute;
+  width: 290px;
+  height: 40px;
+  top: 50vh;
+  left: 75%;
+  padding: 70px 30px;
+  border-radius: 10px;
+  background: #8ce1fb;
+}
+
+.b3{
+  position: absolute;
+  width: 290px;
+  height: 40px;
+  top: 75vh;
+  left: 50%;
+  padding: 70px 30px;
+  border-radius: 10px;
+  background: #8ce1fb;
+}
+
+.b4{
+  position: absolute;
+  width: 290px;
+  height: 40px;
+  top: 75vh;
+  left: 75%;
+  padding: 70px 30px;
+  border-radius: 10px;
+  background: #8ce1fb;
+}
+
+.Sb{
+  position: absolute;
+  left: 35px; 
+  top: 400px; 
+  font-size: 18px;
+  color: #210210;
+  font-weight: bold;
+  padding: 0;
+  width: 290px;
+  height: 120px;
+  padding: 70px 30px;
+  border-radius: 10px;
+  background: #8ce1fb;
+}
+
+.gold {
+  position: center;
+  font-size: 50px;
+}
+
+.favor {
+  position: center;
+  font-size: 50px;
+}
+
+.int {
+  position: center;
+  font-size: 50px;
+}
+
+.str {
+  position: center;
+  font-size: 50px;
+}
+
+.F{
+  font-size: 30px;
+  font-weight: bold;
+  color: green;
+  left: 80px;
+  top: 3px;
+  position: absolute;
+}
+
+.G{
+  font-size: 30px;
+  font-weight: bold;
+  color: gold;
+  left: 83px;
+  top: 3px;
+  position: absolute;  
+}
+
+.I{
+  font-size: 30px;
+  font-weight: bold;
+  color: darkblue;
+  left: 98px;
+  top: 3px;
+  position: absolute;  
+}
+
+.S{
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+  left: 72px;
+  top: 3px;
+  position: absolute;    
+}
+
+.Guide{
+  font-size: 10px;
+  font-weight: bold;
+  color: red;
+  left: 78px;
+  top: 440px;
+  position: absolute; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
